@@ -1,0 +1,206 @@
+.form-control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-control__text {
+  position: relative;
+  padding-left: 30px;
+  font-size: 12px;
+  line-height: 14px;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    background-color: #316dc2;
+    transition: background-color 0.3s ease-out, outline-color 0.3s ease-out;
+  }
+
+  @media (min-width: $tablet-width) {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    line-height: 12px;
+  }
+}
+
+.form-control__input:checked + .form-control__text::after {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  mask-image: url("/__spritemap#sprite-check-view");
+  mask-repeat: no-repeat;
+  mask-size: 10px 8px;
+  mask-position: center;
+  transition: background-color 0.3s ease-out;
+}
+
+.form-control__input:user-invalid + .form-control__text::before {
+  outline-color: #ff5e66;
+  outline-offset: -1px;
+  background: #316dc2 linear-gradient(rgba(255, 94, 102, 0.2) 0 0);
+}
+
+.form-control__input:checked:valid + .form-control__text::before {
+  background-color: #ffffff;
+  outline-color: #316dc2;
+}
+
+.form-control__input:checked:valid + .form-control__text::after {
+  background-color: #316dc2;
+}
+
+@media (min-width: $tablet-width) {
+  .form-control:hover .form-control__text::before {
+    outline-color: #ffffff;
+    outline-offset: -2px;
+    background: $bg-hover-focus-active;
+  }
+
+  .form-control:hover .form-control__input:checked + .form-control__text::before {
+    background-color: $bg-hover-focus-active;
+    outline-color: #ffffff;
+    outline-offset: -2px;
+  }
+
+  .form-control:hover .form-control__input:checked + .form-control__text::after {
+    background-color: #ffffff;
+  }
+}
+
+.form-control__input:focus-visible + .form-control__text::before {
+  background: $bg-hover-focus-active;
+  outline-color: #ffffff;
+  outline-offset: -2px;
+}
+
+.form-control__input:checked:focus-visible + .form-control__text::before {
+  background-color: $bg-hover-focus-active;
+  outline-color: #ffffff;
+  outline-offset: -2px;
+}
+
+.form-control__input:checked:focus-visible + .form-control__text::after {
+  background-color: #ffffff;
+}
+
+@supports not selector(:focus-visible) {
+  .form-control__input:focus + .form-control__text::before {
+    background: $bg-hover-focus-active;
+    outline-color: #ffffff;
+    outline-offset: -2px;
+  }
+
+  .form-control__input:checked:focus + .form-control__text::before {
+    background-color: $bg-hover-focus-active;
+    outline-color: #ffffff;
+    outline-offset: -2px;
+  }
+
+  .form-control__input:checked:focus + .form-control__text::after {
+    background-color: #ffffff;
+  }
+}
+
+.form-control__input:active + .form-control__text::before,
+.form-control__input:active + .form-control__text::after {
+  opacity: 0.8;
+}
+
+.form-wrapper--blue .form-control__text {
+  color: rgba(255, 255, 255, 0.9);
+
+  @media (min-width: $tablet-width) {
+    br {
+      display: none;
+    }
+  }
+}
+
+.form-wrapper--blue .form-control__text::before {
+  outline-color: rgba(255, 255, 255, 0.7);
+}
+
+.form-wrapper--blue .form-control__input:checked:valid + .form-control__text::before {
+  outline-color: #ffffff;
+}
+
+@media (min-width: $tablet-width) {
+  .form-wrapper--blue .form-control:hover .form-control__text::before {
+    outline-offset: -1px;
+  }
+
+  .form-wrapper--blue .form-control:hover .form-control__input:checked + .form-control__text::before {
+    outline-offset: -1px;
+  }
+}
+
+.form-wrapper--blue .form-control__input:focus-visible + .form-control__text::before {
+  outline-offset: -1px;
+}
+
+.form-wrapper--blue .form-control__input:checked:focus-visible + .form-control__text::before {
+  outline-offset: -1px;
+}
+
+@supports not selector(:focus-visible) {
+  .form-wrapper--blue .form-control__input:focus + .form-control__text::before {
+    outline-offset: -1px;
+  }
+
+  .form-wrapper--blue .form-control__input:checked:focus + .form-control__text::before {
+    outline-offset: -1px;
+  }
+}
+
+.form-wrapper--blue .form-control__input:active + .form-control__text::before,
+.form-wrapper--blue .form-control__input:active + .form-control__text::after {
+  opacity: 0.5;
+}
+
+// Неактивное состояние
+.form-control:has(.form-control__input:disabled) {
+  pointer-events: none;
+}
+
+.form-control__input:disabled + .form-control__text {
+  color: rgba(72, 72, 72, 0.3);
+}
+
+.form-control__input:disabled + .form-control__text::before {
+  background: #316dc2 linear-gradient(rgba(255, 255, 255, 0.6) 0 0);
+  outline-color: #ffffff;
+  outline-offset: -2px;
+}
+
+.form-control__input:checked:disabled + .form-control__text::before {
+  background: $disabled-btn;
+  outline-color: transparent;
+  outline-offset: -1px;
+}
+
+.form-control__input:checked:disabled + .form-control__text::after {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.form-wrapper--blue .form-control__input:disabled + .form-control__text {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-wrapper--blue .form-control__input:disabled + .form-control__text::before {
+  outline-offset: -1px;
+}

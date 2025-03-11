@@ -1,0 +1,55 @@
+.page {
+  height: 100%;
+  min-width: 320px;
+
+  &--lock {
+    scroll-behavior: unset;
+    scrollbar-gutter: stable;
+    overflow: hidden;
+  }
+}
+
+.page__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: "Manrope", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #484848;
+  background-color: #f0efe9;
+
+  @media (min-width: $tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (min-width: $desktop-width) {
+    line-height: 26px;
+  }
+
+  &--lock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    scrollbar-gutter: stable;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  &--lock-overlay {
+    height: 100%;
+  }
+
+  &--lock-overlay::before {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    content: "";
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(13, 29, 51, 0.4);
+  }
+}

@@ -1,0 +1,73 @@
+.feedback {
+  padding: 40px 0;
+
+  @media (min-width: $tablet-width) {
+    padding: 50px 13px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 60px 0;
+  }
+}
+
+.feedback__container {
+  @media (min-width: $tablet-width) {
+    padding: 0 15px;
+  }
+
+  @media (min-width: $desktop-width) {}
+}
+
+.feedback__content-wrapper {
+  display: grid;
+  justify-content: center;
+  min-height: 753px;
+  padding: 43px 10px 40px 10px;
+  background-color: rgba(107, 138, 185, 0.3);
+  color: #484848;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image:
+    image-set(url("../../img/feedback-bg-mobile@2x.webp") type("image/webp") 2x,
+      url("../../img/feedback-bg-mobile@1x.webp") type("image/webp") 1x,
+      url("../../img/feedback-bg-mobile@2x.jpg") type("image/jpeg") 2x,
+      url("../../img/feedback-bg-mobile@1x.jpg") type("image/jpeg") 1x);
+
+  @media (min-width: $tablet-width) {
+    justify-content: start;
+    min-height: 780px;
+    padding: 0;
+    border-radius: 16px;
+    background-image:
+      image-set(url("../../img/feedback-bg-tablet@2x.webp") type("image/webp") 2x,
+        url("../../img/feedback-bg-tablet@1x.webp") type("image/webp") 1x,
+        url("../../img/feedback-bg-tablet@2x.jpg") type("image/jpeg") 2x,
+        url("../../img/feedback-bg-tablet@1x.jpg") type("image/jpeg") 1x);
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 800px;
+    background-image:
+      image-set(url("../../img/feedback-bg-desktop@2x.webp") type("image/webp") 2x,
+        url("../../img/feedback-bg-desktop@1x.webp") type("image/webp") 1x,
+        url("../../img/feedback-bg-desktop@2x.jpg") type("image/jpeg") 2x,
+        url("../../img/feedback-bg-desktop@1x.jpg") type("image/jpeg") 1x);
+  }
+}
+
+.feedback__form-wrapper {
+  padding: 15px 15px 27px 15px;
+  border-radius: 16px;
+
+  @media (min-width: $tablet-width) {
+    width: 442px;
+    padding: 30px 40px 36px 40px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 490px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}

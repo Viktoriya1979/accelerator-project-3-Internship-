@@ -1,0 +1,41 @@
+.hero__header {
+  position: absolute;
+  min-height: 74px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 86px;
+  }
+}
+
+.hero__swiper-container {
+  width: 100%;
+  min-height: 568px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 1024px;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 800px;
+  }
+}
+
+.hero__swiper-wrapper {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hero__swiper-slide.swiper-slide {
+  height: auto;
+
+  &:focus-visible {
+    outline: auto;
+  }
+
+  @supports not selector(:focus-visible) {
+    &:focus {
+      outline: auto;
+    }
+  }
+}

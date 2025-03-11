@@ -1,0 +1,99 @@
+.modal-container {
+  z-index: 4;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(13, 29, 51, 0.4);
+  overflow: auto;
+  cursor: pointer;
+
+  &--close {
+    display: none;
+  }
+}
+
+.modal-container__message {
+  position: relative;
+  display: grid;
+  margin: auto;
+  width: calc(100% - 30px);
+  max-width: 510px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  cursor: default;
+}
+
+.modal-container__content {
+  padding: 40px 15px;
+
+  @media (min-width: $tablet-width) {
+    padding: 60px 80px;
+  }
+}
+
+.modal-container__close-button {
+  position: absolute;
+  z-index: 5;
+  display: inline-block;
+  top: 8px;
+  right: 8px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease-out;
+
+  &::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 16px;
+    height: 16px;
+    mask-image: url("/__spritemap#sprite-cross-view");
+    mask-size: 16px 16px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: #316dc2;
+    transition: background-color 0.3s ease-out;
+  }
+
+  @media (min-width: $tablet-width) {
+    top: 14px;
+    right: 14px;
+    min-width: 55px;
+    min-height: 55px;
+
+    &::before {
+      width: 22px;
+      height: 22px;
+      mask-size: 20px 20px;
+    }
+
+    &:hover::before {
+      background-color: rgba(49, 109, 194, 0.6);
+    }
+  }
+
+  &:focus-visible {
+    outline: 0;
+    border-color: $outline-focus-color;
+  }
+
+  @supports not selector(:focus-visible) {
+    &:focus {
+      outline: 0;
+      border-color: $outline-focus-color;
+    }
+  }
+
+  &:active::before {
+    background-color: rgba(49, 109, 194, 0.3);
+  }
+}

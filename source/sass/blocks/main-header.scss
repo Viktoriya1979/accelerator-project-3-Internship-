@@ -1,0 +1,37 @@
+.main-header {
+  width: 100%;
+}
+
+.main-header__container {
+  display: grid;
+  grid-template-columns: 52px auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px 30px;
+  min-height: 74px;
+  padding: 20px 15px 0;
+
+  @media (min-width: $tablet-width) {
+    gap: 30px 60px;
+    padding-top: 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    gap: 80px;
+  }
+}
+
+.main-header__logo-wrapper {
+  position: absolute;
+  z-index: 2;
+  align-self: start;
+  padding-top: 1px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 2px;
+  }
+}
+
+.main-header__navigation {
+  grid-column: 2/3;
+}

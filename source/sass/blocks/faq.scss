@@ -1,0 +1,401 @@
+.faq__container {
+  display: grid;
+  gap: 30px;
+  padding: 50px 15px;
+
+  @media (min-width: $tablet-width) {
+    gap: 40px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 60px;
+  }
+}
+
+.faq__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: #316dc2;
+  transform: translateY(1px);
+
+  @media (min-width: $tablet-width) {
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 50px;
+    line-height: 72px;
+  }
+}
+
+.faq__list {
+  display: grid;
+  gap: 10px;
+  max-width: 1028px;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+.faq__item {
+  border: 2px solid #316dc2;
+  border-radius: 14px;
+  background-color: #316dc2;
+  color: #f0efe9;
+  transition: border-color 0.3s ease-out;
+
+  &:nth-child(3) > .faq__field-label-title {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+
+  &:nth-child(4) > .faq__field-label-title,
+  &:nth-child(5) > .faq__field-label-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  @media (min-width: $tablet-width) {
+    &:has(.faq__field-input-question:checked:hover) {
+      border-color: #ffffff;
+    }
+
+    &:nth-child(3) > .faq__field-label-title {
+      padding-top: 37px;
+      padding-bottom: 31px;
+    }
+
+    &:nth-child(3) > .faq__field-label-title::before {
+      transform: translateY(-43%);
+    }
+
+    &:nth-child(3) > .faq__field-label-title::after {
+      transform: translateY(-35%);
+    }
+
+    &:nth-child(4) > .faq__field-label-title,
+    &:nth-child(5) > .faq__field-label-title {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    &:nth-child(4) > .faq__field-label-title::before,
+    &:nth-child(5) > .faq__field-label-title::before {
+      transform: translateY(-64%);
+    }
+
+    &:nth-child(4) > .faq__field-label-title::after,
+    &:nth-child(5) > .faq__field-label-title::after {
+      transform: translateY(-81%);
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    &:nth-child(3) > .faq__field-label-title {
+      padding-top: 44px;
+      padding-bottom: 34px;
+    }
+
+    &:nth-child(4) > .faq__field-label-title,
+    &:nth-child(5) > .faq__field-label-title {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    &:nth-child(3) > .faq__field-label-title::before {
+      transform: translateY(-38%);
+    }
+
+    &:nth-child(3) > .faq__field-label-title::after {
+      transform: translateY(-22%);
+    }
+
+    &:nth-child(4) > .faq__field-label-title::before,
+    &:nth-child(5) > .faq__field-label-title::before {
+      transform: translateY(-82%);
+    }
+
+    &:nth-child(4) > .faq__field-label-title::after,
+    &:nth-child(5) > .faq__field-label-title::after {
+      transform: translateY(-120%);
+    }
+  }
+
+  &:has(.faq__field-input-question:checked:focus-visible) {
+    border-color: #ffffff;
+    outline: 0;
+  }
+
+  @supports not selector(:focus-visible) {
+    &:has(.faq__field-input-question:checked:focus) {
+      border-color: #ffffff;
+      outline: 0;
+    }
+  }
+
+  &:has(.faq__field-input-question:checked:active) {
+    border-color: #275699;
+    background-color: #275699;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .faq__field-input-question:hover + .faq__field-label-title {
+    background-color: #ffffff;
+  }
+
+  .faq__field-input-question:hover + .faq__field-label-title::before {
+    background-color: #ffffff;
+    border-color: $bg-hover-focus-active;
+  }
+
+  .faq__field-input-question:hover + .faq__field-label-title::after {
+    background-color: $bg-hover-focus-active;
+  }
+}
+
+.faq__field-input-question:focus-visible + .faq__field-label-title {
+  background-color: #ffffff;
+  outline: 0;
+}
+
+.faq__field-input-question:focus-visible + .faq__field-label-title::before {
+  background-color: #ffffff;
+  border-color: $bg-hover-focus-active;
+}
+
+.faq__field-input-question:focus-visible + .faq__field-label-title::after {
+  background-color: $bg-hover-focus-active;
+}
+
+@supports not selector(:focus-visible) {
+  .faq__field-input-question:focus + .faq__field-label-title {
+    background-color: #ffffff;
+    outline: 0;
+  }
+
+  .faq__field-input-question:focus + .faq__field-label-title::before {
+    background-color: #ffffff;
+    border-color: $bg-hover-focus-active;
+  }
+
+  .faq__field-input-question:focus + .faq__field-label-title::after {
+    background-color: $bg-hover-focus-active;
+  }
+}
+
+.faq__field-input-question:active + .faq__field-label-title {
+  background-color: #ffffff;
+  color: #275699;
+}
+
+.faq__field-input-question:active + .faq__field-label-title::before {
+  background-color: #275699;
+  border-color: transparent;
+}
+
+.faq__field-input-question:active + .faq__field-label-title::after {
+  background-color: #ffffff;
+}
+
+.faq__field-label-title {
+  position: relative;
+  display: block;
+  padding: 22px 72px 22px 15px;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #316dc2;
+  background-color: #f0efe9;
+  cursor: pointer;
+  transition: color 0.1s;
+
+  &::before {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    min-width: 40px;
+    min-height: 40px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    background-color: #316dc2;
+    transition: background-color 0.3s ease-out;
+  }
+
+  &::after {
+    position: absolute;
+    right: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    min-width: 18px;
+    min-height: 18px;
+    background-color: #ffffff;
+    mask-image: url("/__spritemap#sprite-plus-view");
+    mask-repeat: no-repeat;
+    mask-size: 18px 18px;
+    mask-position: center;
+  }
+
+  br {
+    display: none;
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 37px 102px 37px 30px;
+    font-size: 22px;
+    line-height: 26px;
+
+    &::before {
+      right: 30px;
+
+    }
+
+    &::after {
+      right: 41px;
+    }
+
+    br {
+      display: block;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 43px 120px 43px 40px;
+    font-size: 28px;
+    line-height: 34px;
+
+    br {
+      display: none;
+    }
+
+    &::before {
+      right: 40px;
+    }
+
+    &::after {
+      right: 51px;
+    }
+  }
+}
+
+.faq__field-input-question:checked ~ .faq__answer-text-wrapper {
+  display: block;
+}
+
+.faq__field-input-question:checked + .faq__field-label-title {
+  background-color: #316dc2;
+  color: #ffffff;
+}
+
+.faq__field-input-question:checked + .faq__field-label-title::before {
+  background-color: #ffffff;
+}
+
+.faq__field-input-question:checked + .faq__field-label-title::after {
+  mask-image: url("/__spritemap#sprite-minus-view");
+  mask-size: 22px 22px;
+  background-color: #316dc2;
+}
+
+@media (min-width: $tablet-width) {
+  .faq__field-input-question:checked:hover + .faq__field-label-title::before {
+    background-color: transparent;
+    border-color: #ffffff;
+  }
+
+  .faq__field-input-question:checked:hover + .faq__field-label-title::after {
+    background-color: #ffffff;
+  }
+}
+
+.faq__field-input-question:checked:focus-visible + .faq__field-label-title::before {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+.faq__field-input-question:checked:focus-visible + .faq__field-label-title::after {
+  background-color: #ffffff;
+}
+
+@supports not selector(:focus-visible) {
+  .faq__field-input-question:checked:focus + .faq__field-label-title::before {
+    background-color: transparent;
+    border-color: #ffffff;
+  }
+
+  .faq__field-input-question:checked:focus + .faq__field-label-title::after {
+    background-color: #ffffff;
+  }
+}
+
+.faq__field-input-question:checked:active + .faq__field-label-title {
+  background-color: #275699;
+}
+
+.faq__field-input-question:checked:active + .faq__field-label-title::before {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.faq__field-input-question:checked:active + .faq__field-label-title::after {
+  background-color: #275699;
+}
+
+.faq__answer-text-wrapper {
+  display: none;
+  padding: 20px 15px 22px 15px;
+  margin-top: -20px;
+  border-radius: 0 0 14px 14px;
+  color: #f0efe9;
+
+  @media (min-width: $tablet-width) {
+    padding: 20px 32px 32px 31px;
+    margin-top: -26px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 20px 40px 41px 40px;
+    margin-top: -33px;
+  }
+}
+
+.faq__text-content {
+  color: #f0efe9;
+
+  p {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 20px;
+    transform: translateY(2px);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    p {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    p {
+      line-height: 26px;
+    }
+
+    p > br {
+      display: none;
+    }
+  }
+}

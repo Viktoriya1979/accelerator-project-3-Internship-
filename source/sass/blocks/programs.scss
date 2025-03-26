@@ -1,0 +1,50 @@
+.programs {
+  display: grid;
+  gap: 30px;
+  padding: 50px 0;
+}
+
+.programs__container {
+  padding: 0 15px;
+
+  &--title {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    column-gap: 15px;
+    align-items: center;
+  }
+}
+
+.programs__title-wrapper {
+  padding: 5px 0;
+}
+
+.programs__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #316dc2;
+}
+
+.programs__buttons-wrapper {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+  min-width: 52px;
+}
+
+.programs__swiper-container {
+  min-height: 400px;
+  padding: 0 15px;
+}
+
+.programs__swiper-wrapper {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
